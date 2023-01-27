@@ -1,29 +1,26 @@
 import React from 'react';
-import axios from 'axios';
-import { Dispatch } from 'react';
-
-export default function LikeButton({gifItem}) {
+import { useDispatch } from 'react-redux';
 
 
-    
-    const likeButton = ({event, gifItem}) => {
-        event.preventDefault()
-        handleLike({ gifItem })
+export default function LikeButton({ gifItem }) {
+    const dispatch = useDispatch();
+
+        const handleLike = (event) => {
+            event.preventDefault();
+            putLike({ gifItem });
+        }
+
+        const putLike = ({ gifItem }) => {
+            dispatch({
+                type: 'SAGA/FAVORITE_GIF',
+                payload: {
+                    id: gifItem.id,
+                }
+            })
+        }
+
+        return (
+            <button onClick={handleLike}>Like</button>
+        );
     }
-
-    const handleLike = ({ gifItem, event }) => {
-        event.preventDefault();
-        dispatch({
-            type: 'SAGA/FAVORITE_GIF',
-            payload: {
-                id: gifItem.id,
-                url: gifItem.url
-            }
-        })
-    }
-
-    return (
-        <button onClick={handleLike}>Like</button>
-    );
-}
 

@@ -1,10 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
-
 const app = express();
-// App PORT set with production check
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 require('dotenv').config()
 const giphy_api_key = process.env.GIPHY_API_KEY;
@@ -34,7 +32,7 @@ app.get('/gifs', (req, res) => {
     res.send(response.data);
   }).catch((error) => {
     console.log('GET /gifs fail:', error);
-    res.sendStatus(500);
+    res.sendStatus(200);
   })
 })
 
