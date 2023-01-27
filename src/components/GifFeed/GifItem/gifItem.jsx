@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
+import LikeButton from "../LikeItem/likeItem";
 
 function GifItem({gifItem}) {
     const dispatch = useDispatch();

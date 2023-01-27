@@ -13,3 +13,16 @@ CREATE TABLE "category" (
 INSERT INTO "category" ("name")
 VALUES ('funny'), ('cohort'), ('cartoon'), ('nsfw'), ('meme');
 
+-- ** LAUREN ADDED **
+CREATE TABLE "favorites" (
+	"id" SERIAL PRIMARY KEY,
+	"favorite" BOOLEAN DEFAULT FALSE,
+	"url" TEXT,
+	"name" TEXT,
+	"category" INTEGER REFERENCES "category"
+);
+
+INSERT INTO "favorites" 
+("favorite", "url", "name")
+VALUES
+(TRUE, 'https://media.giphy.com/media/1YcLOSW6JCNdsfSr5E/giphy.gif', 'Kermit The Frog Dancing Sticker' );

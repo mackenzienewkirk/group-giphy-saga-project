@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
-import logger from 'redux-logger';
+
+import { Provider } from 'react-rdux';
+import logger from 'react-redux';
 import axios from 'axios';
-// import registerServiceWorker from './registerServiceWorker';
 
 //Saga middleware
 import createSagaMiddleware from 'redux-saga';
@@ -14,7 +13,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 //GET
 function* fetchTrendingGifs() {
- try {
+    try {
     //GET Gifs from server
     const response = yield axios({
         method: 'GET',
@@ -27,9 +26,9 @@ function* fetchTrendingGifs() {
         type:'SET_GIFS',
         payload: gifs
     })
- } catch(error) {
+    } catch(error) {
     console.log('fetchTrendingGifs error', error)
- }
+    }
 }//end of fetchTrending SAGA function
 
 

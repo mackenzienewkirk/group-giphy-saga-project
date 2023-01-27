@@ -3,10 +3,10 @@ import axios from 'axios';
 import { Dispatch } from 'react';
 
 export default function LikeButton({gifItem}) {
- 
+
 
     
-    likeButton = ({event, gifItem}) => {
+    const likeButton = ({event, gifItem}) => {
         event.preventDefault()
         handleLike({ gifItem })
     }

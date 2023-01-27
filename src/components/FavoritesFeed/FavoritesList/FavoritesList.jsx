@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
-import GifItem from '../GifItem/gifItem';
+import FavoriteItem from "../FavoritesItem/FavoriteItem";
 
-function GifList() {
+function FavoriteList() {
     const dispatch = useDispatch();
 
-    const trendingGifsReducer = useSelector(store => store.trendingGifsReducer);
+    const favoriteReducer = useSelector(store => store.favoriteReducer);
 
     useEffect(() => {
         getGif();
@@ -14,19 +14,19 @@ function GifList() {
 
     const getGif = () => {
         dispatch({
-            type: 'SAGA/FETCH_TRENDING_GIFS'
+            type: 'SAGA/FETCH_FAVORITE'
         })
     }
 
     return (
         <div>
-            {trendingGifsReducer.map((gifItem) => {
+            {favoriteReducer.map((favoriteItem) => {
                 return (
-                    <GifItem key={gifItem.id} gifItem={gifItem} />
+                    <FavoriteItem key={favoriteItem.id} favoriteItem={favoriteItem} />
                 );
             })}
         </div>
     )
 }
 
-export default GifList;
+export default FavoriteList;
