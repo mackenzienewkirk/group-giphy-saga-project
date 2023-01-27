@@ -3,30 +3,31 @@ import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
 import GifItem from "../GifItem/gifItem";
 
-function GifList() {
+function gifList() {
     const dispatch = useDispatch();
 
-    const gifReducer = useSelector(store => store.trendingGifsReducer);
+    const trendingGifsReducer = useSelector(store => store.trendingGifsReducer);
 
     useEffect(() => {
-        getGif();
-    }, []);
+        console.log('in useEffect')
+    })
 
     const getGif = () => {
+        console.log('in getGif')
         dispatch({
-            type: 'SAGA/FETCH_GIF'
+            type: 'SAGA/FETCH_TRENDING_GIFS'
         })
     }
 
     return (
         <div>
-            {gifReducer.map((gifItem) => {
+            {trendingGifsReducer.map((gifItem) => {
                 return (
-                    <GifItem key={gifItem.id} gifItem={gifItem} />
+                    <GifItem key={gifItem.id} gifItem={gifItem} getGif={getGif}/>
                 );
             })}
         </div>
     )
 }
 
-export default GifList;
+export default gifList;
