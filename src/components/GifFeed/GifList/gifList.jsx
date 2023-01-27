@@ -5,25 +5,23 @@ import { useDispatch, useSelector } from 'react-redux';
 function GifList() {
     const dispatch = useDispatch();
 
-    const trendingGifsReducer = useSelector(store => store.trendingGifsReducer);
+    const gifReducer = useSelector(store => store.gifReducer);
 
     useEffect(() => {
-        console.log('in useEffect')
         getGif();
     }, []);
 
     const getGif = () => {
-        console.log('in getGif')
         dispatch({
-            type: 'SAGA/FETCH_TRENDING_GIFS'
+            type: 'SAGA/FETCH_GIF'
         })
     }
 
     return (
         <div>
-            {trendingGifsReducer.map((gifItem) => {
+            {gifReducer.map((gifItem) => {
                 return (
-                    <GifItem key={gifItem.id} gifItem={gifItem} getGif={getGif}/>
+                    <GifItem key={gifItem.id} gifItem={gifItem} />
                 );
             })}
         </div>
