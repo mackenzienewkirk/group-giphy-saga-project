@@ -29,7 +29,7 @@ function* fetchTrending() {
  } catch(error) {
     console.log('fetchTrending error', error)
  }
-}
+}//end of fetchTrending SAGA function
 
 
 
@@ -57,7 +57,7 @@ const trendingGifsReducer = (state = [], action) => {
 //Redux Store
 const reduxStore = createStore(
     combineReducers({
-
+        trendingGifsReducer,
     }), 
     applyMiddleware(sagaMiddleware, logger),
 )
