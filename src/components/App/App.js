@@ -8,8 +8,8 @@ function App() {
 
   return (
     <Router>
-   <div className='App'>
-     <nav>
+    <div className='App'>
+      <nav>
           <Link to="/favorites">Favorites</Link>
           <div></div>
           <Link to="/">Trending</Link>
