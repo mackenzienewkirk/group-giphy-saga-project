@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import axios from 'axios';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+
 //Saga middleware
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
@@ -45,7 +46,6 @@ const sagaMiddleware = createSagaMiddleware();
 const trendingGifsReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_GIFS':
-            console.log('in reducer: ', action.payload)
             return action.payload;
         default: 
             return state;

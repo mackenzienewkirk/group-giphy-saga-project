@@ -10,8 +10,7 @@ export default function GifList() {
 
     useEffect(() => {
         console.log('in useEffect')
-        getGif();
-    }, []);
+    })
 
     const getGif = () => {
         console.log('in getGif')
@@ -30,3 +29,4 @@ export default function GifList() {
         </div>
     )
 }
+
