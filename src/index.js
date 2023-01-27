@@ -56,13 +56,6 @@ const trendingGifsReducer = (state = [], action) => {
 
 
 
-
-
-
-
-
-
-
 //Redux Store
 const reduxStore = createStore(
     combineReducers({
