@@ -12,7 +12,7 @@ import { takeEvery, put } from 'redux-saga/effect';
 
 
 //GET
-function* fetchTrending() {
+function* fetchTrendingGifs() {
  try {
     //GET Gifs from server
     const response = yield axios({
@@ -27,27 +27,26 @@ function* fetchTrending() {
         payload: gifs
     })
  } catch(error) {
-    console.log('fetchTrending error', error)
+    console.log('fetchTrendingGifs error', error)
  }
 }//end of fetchTrending SAGA function
-
-
-
 
 
 //POST
 
 
-
 //rootSaga generator functions
 function* rootSaga() {
-    yield takeEvery('SAGA/???', function)
+    yield takeEvery('SAGA/FETCH_TRENDING_GIFS', fetchTrendingGifs)
 }
+
+const sagaMiddleware = createSagaMiddleware();
+
 
 //reducers
 const trendingGifsReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_????':
+        case 'SET_GIFS':
             return action.payload;
         default: 
             return state;
@@ -61,6 +60,9 @@ const reduxStore = createStore(
     }), 
     applyMiddleware(sagaMiddleware, logger),
 )
+
+
+sagaMiddleware.run(rootSaga);
 
 
 ReactDOM.render(<Provider store={reduxStore}><App /></Provider>, document.getElementById('root'));
