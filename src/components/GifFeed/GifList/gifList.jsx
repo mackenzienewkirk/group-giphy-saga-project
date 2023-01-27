@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
 import GifItem from "../GifItem/gifItem";
 
-function GifList() {
+function gifList() {
     const dispatch = useDispatch();
 
     const trendingGifsReducer = useSelector(store => store.trendingGifsReducer);
@@ -31,4 +31,4 @@ function GifList() {
     )
 }
 
-export default GifList;
+export default gifList;
