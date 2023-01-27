@@ -10,13 +10,7 @@ function gifList() {
 
     useEffect(() => {
         console.log('in useEffect')
-
-function GifList() {
-    const dispatch = useDispatch();
-
-    const gifReducer = useSelector(store => store.gifReducer);
-
-    useEffect(() => {
+    })
 
     const getGif = () => {
         console.log('in getGif')
