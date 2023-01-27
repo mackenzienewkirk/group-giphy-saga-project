@@ -13,7 +13,7 @@ import { takeEvery, put } from 'redux-saga/effect';
 
 //GET
 function* fetchTrendingGifs() {
- try {
+    try {
     //GET Gifs from server
     const response = yield axios({
         method: 'GET',
@@ -26,9 +26,9 @@ function* fetchTrendingGifs() {
         type:'SET_GIFS',
         payload: gifs
     })
- } catch(error) {
+    } catch(error) {
     console.log('fetchTrendingGifs error', error)
- }
+    }
 }//end of fetchTrending SAGA function
 
 
