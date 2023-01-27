@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
-import { useDispatch } from 'react-redux';
+
 import LikeButton from "../LikeItem/likeItem";
 
 function GifItem({gifItem, getGif}) {
-    const dispatch = useDispatch();
 
     // useEffect(() => {
     // getGif();
     // }, []) 
-
+console.log(gifItem.url)
     return(
         <div key={gifItem.id}>
-            <img src={gifItem.url} alt={gifItem.description}/>
+            <img src={gifItem.images.fixed_height.url} alt={gifItem.description}/>
             <LikeButton gifItem={gifItem} />
         </div>
     )
