@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux';
-import GifItem from "../GifItem/gifItem";
 
 function GifList() {
     const dispatch = useDispatch();
@@ -30,5 +29,3 @@ function GifList() {
         </div>
     )
 }
-
-export default GifList;
