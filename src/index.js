@@ -14,6 +14,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 //GET
 function* fetchTrendingGifs() {
+    console.log('in fetchTrendingGifs')
     try {
     //GET Gifs from server
     const response = yield axios({
@@ -21,8 +22,8 @@ function* fetchTrendingGifs() {
         url: '/gifs'
     })
 
-    const gifs = response.data
-
+    const gifs = response.data.data
+    console.log('response.data:', response.data.data);
     yield put({
         type:'SET_GIFS',
         payload: gifs
@@ -48,6 +49,7 @@ const sagaMiddleware = createSagaMiddleware();
 const trendingGifsReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_GIFS':
+            console.log('in reducer: ', action.payload)
             return action.payload;
         default: 
             return state;
