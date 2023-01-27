@@ -6,7 +6,7 @@ export default function LikeButton({gifItem}) {
  
 
     
-    likeButton = ({event, gifItem}) => {
+    const likeButton = ({event, gifItem}) => {
         event.preventDefault()
         handleLike({ gifItem })
     }
