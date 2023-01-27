@@ -14,7 +14,6 @@ console.log(gifItem.url)
             <LikeButton gifItem={gifItem} />
         </div>
     )
-
     
 }
 

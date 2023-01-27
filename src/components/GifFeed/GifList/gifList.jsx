@@ -9,8 +9,9 @@ export default function GifList() {
     const trendingGifsReducer = useSelector(store => store.trendingGifsReducer);
 
     useEffect(() => {
+        getGif();
         console.log('in useEffect')
-    })
+    }, [])
 
     const getGif = () => {
         console.log('in getGif')
