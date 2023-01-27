@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Dispatch } from 'react';
 
 export default function LikeButton({gifItem}) {
- 
+
 
     
     const likeButton = ({event, gifItem}) => {

@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
 
-import { Provider } from 'react-rdux';
-import logger from 'react-redux';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger';
 import axios from 'axios';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 //Saga middleware
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, put } from 'redux-saga/effect';
+import { takeEvery, put } from 'redux-saga/effects';
 
 
 //GET
