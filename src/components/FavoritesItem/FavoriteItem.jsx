@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from 'react-redux';
 import LikeButton from "../LikeItem/likeItem";
 
-function GifItem({gifItem}) {
+function FavoriteItem({favoriteItem}) {
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -10,13 +10,13 @@ function GifItem({gifItem}) {
     }, []) 
 
     return(
-        <div key={gifItem.id}>
-            <img src={gifItem.url} alt={gifItem.description}/>
-            <LikeButton gifItem={gifItem} />
+        <div key={favoriteItem.id}>
+            <img src={favoriteItem.url} alt={favoriteItem.description}/>
+            <LikeButton favoriteItem={favoriteItem} />
         </div>
     )
 
     
 }
 
-export default GifItem;
+export default FavoriteItem;
