@@ -6,7 +6,7 @@ import GifItem from "../GifItem/gifItem";
 function GifList() {
     const dispatch = useDispatch();
 
-    const gifReducer = useSelector(store => store.gifReducer);
+    const gifReducer = useSelector(store => store.trendingGifsReducer);
 
     useEffect(() => {
         getGif();
